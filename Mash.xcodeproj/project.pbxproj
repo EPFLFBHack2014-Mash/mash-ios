@@ -202,12 +202,28 @@
 		FC5D082B191E8A46005BBB14 /* MashViewer */ = {
 			isa = PBXGroup;
 			children = (
-				FC5D0828191E8A3B005BBB14 /* VideoPlayerViewController.h */,
-				FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */,
+				FC5D0835191E9979005BBB14 /* VideoPlayer */,
+				FC5D0834191E9970005BBB14 /* MashActions */,
+			);
+			name = MashViewer;
+			sourceTree = "<group>";
+		};
+		FC5D0834191E9970005BBB14 /* MashActions */ = {
+			isa = PBXGroup;
+			children = (
 				FC5D0831191E96E4005BBB14 /* MashActionViewController.h */,
 				FC5D0832191E96E4005BBB14 /* MashActionViewController.m */,
 			);
-			name = MashViewer;
+			name = MashActions;
+			sourceTree = "<group>";
+		};
+		FC5D0835191E9979005BBB14 /* VideoPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D0828191E8A3B005BBB14 /* VideoPlayerViewController.h */,
+				FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */,
+			);
+			name = VideoPlayer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
