@@ -23,6 +23,7 @@
 		FC5D0811191E815A005BBB14 /* MashTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0810191E815A005BBB14 /* MashTests.m */; };
 		FC5D081D191E82C4005BBB14 /* cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5D081C191E82C4005BBB14 /* cell.xib */; };
 		FC5D0820191E8333005BBB14 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D081F191E8333005BBB14 /* Cell.m */; };
+		FC5D082A191E8A3B005BBB14 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +59,8 @@
 		FC5D081C191E82C4005BBB14 /* cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cell.xib; sourceTree = "<group>"; };
 		FC5D081E191E8333005BBB14 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		FC5D081F191E8333005BBB14 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		FC5D0828191E8A3B005BBB14 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
+		FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,14 +120,9 @@
 		FC5D07EB191E815A005BBB14 /* Mash */ = {
 			isa = PBXGroup;
 			children = (
-				FC5D07F4191E815A005BBB14 /* AppDelegate.h */,
-				FC5D07F5191E815A005BBB14 /* AppDelegate.m */,
+				FC5D0825191E8901005BBB14 /* Delegate */,
 				FC5D07F7191E815A005BBB14 /* Main.storyboard */,
-				FC5D07FA191E815A005BBB14 /* ViewController.h */,
-				FC5D07FB191E815A005BBB14 /* ViewController.m */,
-				FC5D081C191E82C4005BBB14 /* cell.xib */,
-				FC5D081E191E8333005BBB14 /* Cell.h */,
-				FC5D081F191E8333005BBB14 /* Cell.m */,
+				FC5D0826191E890D005BBB14 /* ViewControllers */,
 				FC5D07FD191E815A005BBB14 /* Images.xcassets */,
 				FC5D07EC191E815A005BBB14 /* Supporting Files */,
 			);
@@ -158,6 +156,53 @@
 				FC5D080D191E815A005BBB14 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FC5D0824191E88FB005BBB14 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D081C191E82C4005BBB14 /* cell.xib */,
+				FC5D081E191E8333005BBB14 /* Cell.h */,
+				FC5D081F191E8333005BBB14 /* Cell.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		FC5D0825191E8901005BBB14 /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D07F4191E815A005BBB14 /* AppDelegate.h */,
+				FC5D07F5191E815A005BBB14 /* AppDelegate.m */,
+			);
+			name = Delegate;
+			sourceTree = "<group>";
+		};
+		FC5D0826191E890D005BBB14 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D082B191E8A46005BBB14 /* MashViewer */,
+				FC5D0827191E8917005BBB14 /* Home */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FC5D0827191E8917005BBB14 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D0824191E88FB005BBB14 /* Cell */,
+				FC5D07FA191E815A005BBB14 /* ViewController.h */,
+				FC5D07FB191E815A005BBB14 /* ViewController.m */,
+			);
+			name = Home;
+			sourceTree = "<group>";
+		};
+		FC5D082B191E8A46005BBB14 /* MashViewer */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D0828191E8A3B005BBB14 /* VideoPlayerViewController.h */,
+				FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */,
+			);
+			name = MashViewer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +303,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC5D082A191E8A3B005BBB14 /* VideoPlayerViewController.m in Sources */,
 				FC5D07FC191E815A005BBB14 /* ViewController.m in Sources */,
 				FC5D0820191E8333005BBB14 /* Cell.m in Sources */,
 				FC5D07F6191E815A005BBB14 /* AppDelegate.m in Sources */,

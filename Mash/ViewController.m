@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "Cell.h"
+#import "VideoPlayerViewController.h"
 
 @interface ViewController ()
 
@@ -62,6 +63,20 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 66;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [self performSegueWithIdentifier:@"watchMash" sender:self];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"watchMash"])
+    {
+        VideoPlayerViewController* destvc = [segue destinationViewController];
+        destvc.videoURL= self.videoURL;
+    }
 }
 
 - (IBAction)captureVideo:(id)sender {

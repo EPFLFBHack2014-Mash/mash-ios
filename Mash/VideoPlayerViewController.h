@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  VideoPlayerViewController.h
 //  Mash
 //
 //  Created by Dylan Bourgeois on 10/05/14.
@@ -10,13 +10,9 @@
 #import <MediaPlayer/MediaPlayer.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 
-@interface ViewController : UIViewController <UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITableViewDelegate, UITableViewDataSource>
+@interface VideoPlayerViewController : UIViewController
 
 @property (strong, nonatomic) NSURL *videoURL;
 @property (strong, nonatomic) MPMoviePlayerController *videoController;
-
-- (IBAction)captureVideo:(id)sender;
-
-@property (nonatomic, retain) IBOutlet UITableView *tableView;
 
 @end
