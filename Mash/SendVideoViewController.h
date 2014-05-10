@@ -14,4 +14,6 @@
 
 @property (nonatomic, strong) NSArray* groupNames;
 
+@property (nonatomic, strong) NSString* videoURL;
+
 @end

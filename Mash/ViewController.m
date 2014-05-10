@@ -24,15 +24,28 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+
+    self.groups = [[NSMutableArray alloc] init];
     
-    Group * testGroup = [[Group alloc] init];
-    testGroup.groupName = @"Madafukas";
-    
-    Group *testGroup2 =[[Group alloc] init];
-    testGroup2.groupName = @"Bambinos";
-    
-    self.groups = @[testGroup, testGroup2];
-    
+    PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            // The find succeeded.
+            NSLog(@"Successfully retrieved %d scores.", objects.count);
+            // Do something with the found objects
+            for (PFObject *object in objects) {
+                Group *testGroup = [[Group alloc] init];
+                testGroup.groupName = object[@"name"];
+                
+                [self.groups addObject:testGroup];
+            }
+        } else {
+            // Log details of the failure
+            NSLog(@"Error: %@ %@", error, [error userInfo]);
+        }
+        [self.tableView reloadData];
+    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -88,7 +101,6 @@
     if ([segue.identifier isEqualToString:@"watchMash"])
     {
         VideoPlayerViewController* destvc = [segue destinationViewController];
-//         destvc.videoURL = self.videoURL;
         destvc.group = self.selectedGroup;
     }
     
@@ -96,6 +108,8 @@
     {
         SendVideoViewController *destvc = [segue destinationViewController];
         destvc.groupNames = self.groups;
+        destvc.videoURL = [[self.videoURL absoluteString] substringFromIndex:7];
+        
     }
 }
 
@@ -114,20 +128,11 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
-    // choose group to send to !
-    
-    Video*newVid = [[Video alloc] init];
-    newVid.path = info[UIImagePickerControllerMediaURL];
-    
-    //Send to parse backend
-    // [video uploadToParse];
-    
     self.videoURL = info[UIImagePickerControllerMediaURL];
     
     [picker dismissViewControllerAnimated:YES completion:^(){
         [self performSegueWithIdentifier:@"chooseGroups" sender:self];
     }];
-    
     
 
 }

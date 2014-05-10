@@ -13,5 +13,4 @@
 
 @property(nonatomic, strong) NSString *groupName;
 @property(nonatomic, strong) Mash *mash;
-
 @end

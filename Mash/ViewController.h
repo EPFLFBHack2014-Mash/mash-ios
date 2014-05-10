@@ -20,7 +20,7 @@
 
 @property (nonatomic, retain) IBOutlet UITableView *tableView;
 
-@property (nonatomic, strong) NSArray* groups;
+@property (nonatomic, strong) NSMutableArray* groups;
 @property (nonatomic, strong) Group* selectedGroup;
 
 @end

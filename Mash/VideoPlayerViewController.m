@@ -34,7 +34,7 @@
                                              selector:@selector(mashEnded)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     
-    if(self.videoURL==0)
+    if([[self.videoURL absoluteString] length]==0)
         NSLog(@"Err");
     else
     {

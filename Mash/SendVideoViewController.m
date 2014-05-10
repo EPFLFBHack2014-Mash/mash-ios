@@ -9,6 +9,7 @@
 #import "SendVideoViewController.h"
 #import "Cell.h"
 #import "Group.h"
+#import <Parse/Parse.h>
 
 @interface SendVideoViewController ()
 
@@ -29,10 +30,7 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-}
-
--(void)viewDidAppear:(BOOL)animated
-{
+    NSLog(@"%@", self.groupNames);
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,7 +76,23 @@
 
 -(IBAction)sendVideo:(id)sender
 {
-    //send to Parse
+    PFFile* videoFile = [PFFile fileWithName:@"test-video" contentsAtPath:self.videoURL];
+    [videoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        
+        PFQuery *query = [PFQuery queryWithClassName:@"Group"];
+        [query whereKey:@"name" equalTo:[self.groupNames[0] groupName]];
+        [query getFirstObjectInBackgroundWithBlock:^(PFObject* object, NSError* error){
+            PFObject *group = object;
+            
+            PFObject *video = [PFObject objectWithClassName:@"Video"];
+            
+            video[@"group"]= group;
+            
+            [video setObject:videoFile forKey:@"file"];
+            [video saveInBackground];
+        }];
+    }];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
