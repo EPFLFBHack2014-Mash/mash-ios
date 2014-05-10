@@ -12,7 +12,9 @@
 #import <Parse/Parse.h>
 
 @interface SendVideoViewController ()
-
+{
+    long incrementName;
+}
 @end
 
 @implementation SendVideoViewController
@@ -30,7 +32,8 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    NSLog(@"%@", self.groupNames);
+    self.tableview.allowsMultipleSelection = YES;
+    self.recipients = [[NSMutableArray alloc] init];
 }
 
 - (void)didReceiveMemoryWarning
@@ -73,23 +76,40 @@
     return 66;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Cell* cell = (Cell*)[tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    [self.recipients addObject:cell.groupLabel.text];
+    
+}
+
+- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    Cell* cell = (Cell*)[tableView cellForRowAtIndexPath:indexPath];
+    cell.accessoryType = UITableViewCellAccessoryNone;
+    [self.recipients removeObject:cell.groupLabel.text];
+
+}
 
 -(IBAction)sendVideo:(id)sender
 {
-    PFFile* videoFile = [PFFile fileWithName:@"test-video" contentsAtPath:self.videoURL];
+    incrementName++;
+    PFFile* videoFile = [PFFile fileWithName:[NSString stringWithFormat:@"%ld", incrementName] contentsAtPath:self.videoURL];
     [videoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         PFQuery *query = [PFQuery queryWithClassName:@"Group"];
-        [query whereKey:@"name" equalTo:[self.groupNames[0] groupName]];
-        [query getFirstObjectInBackgroundWithBlock:^(PFObject* object, NSError* error){
-            PFObject *group = object;
-            
-            PFObject *video = [PFObject objectWithClassName:@"Video"];
-            
-            video[@"group"]= group;
-            
-            [video setObject:videoFile forKey:@"file"];
-            [video saveInBackground];
+        [query whereKey:@"name" containedIn:self.recipients];
+        [query findObjectsInBackgroundWithBlock:^(NSArray* objects, NSError*error){
+            for (PFObject*object in objects)
+            {
+                PFObject *group = object;
+                PFObject *video = [PFObject objectWithClassName:@"Video"];
+                video[@"group"]= group;
+                
+                [video setObject:videoFile forKey:@"file"];
+                [video saveInBackground];
+            }
         }];
     }];
     
@@ -100,16 +120,5 @@
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
