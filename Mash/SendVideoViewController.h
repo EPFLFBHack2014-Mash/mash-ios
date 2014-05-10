@@ -18,4 +18,6 @@
 
 @property (nonatomic,strong) NSMutableArray* recipients;
 
+@property(nonatomic) int duration;
+
 @end

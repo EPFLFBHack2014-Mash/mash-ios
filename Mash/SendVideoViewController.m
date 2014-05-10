@@ -108,6 +108,7 @@
                 video[@"group"]= group;
                 
                 [video setObject:videoFile forKey:@"file"];
+                [video setObject:[NSNumber numberWithInt:self.duration] forKey:@"duration"];
                 [video saveInBackground];
             }
         }];

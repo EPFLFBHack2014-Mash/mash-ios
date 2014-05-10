@@ -11,8 +11,12 @@
 #import "VideoPlayerViewController.h"
 #import "Video.h"
 #import "SendVideoViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 @interface ViewController ()
+{
+    NSTimeInterval durationInSeconds;
+}
 
 @end
 
@@ -109,6 +113,7 @@
         SendVideoViewController *destvc = [segue destinationViewController];
         destvc.groupNames = self.groups;
         destvc.videoURL = [[self.videoURL absoluteString] substringFromIndex:7];
+        destvc.duration = durationInSeconds;
         
     }
 }
@@ -129,6 +134,14 @@
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
     self.videoURL = info[UIImagePickerControllerMediaURL];
+    
+    NSURL *videoURL=[info objectForKey:@"UIImagePickerControllerMediaURL"];
+    AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    
+    durationInSeconds = 0.0;
+    if (asset) durationInSeconds = (int) CMTimeGetSeconds(asset.duration);
+        
+    
     
     [picker dismissViewControllerAnimated:YES completion:^(){
         [self performSegueWithIdentifier:@"chooseGroups" sender:self];
