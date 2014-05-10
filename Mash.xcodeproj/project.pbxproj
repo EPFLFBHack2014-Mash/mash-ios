@@ -25,6 +25,20 @@
 		FC5D0820191E8333005BBB14 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D081F191E8333005BBB14 /* Cell.m */; };
 		FC5D082A191E8A3B005BBB14 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */; };
 		FC5D0833191E96E4005BBB14 /* MashActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0832191E96E4005BBB14 /* MashActionViewController.m */; };
+		FC5D0838191EB3DA005BBB14 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0837191EB3DA005BBB14 /* Group.m */; };
+		FC5D083D191EB407005BBB14 /* Mash.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D083C191EB407005BBB14 /* Mash.m */; };
+		FC5D0841191EB98D005BBB14 /* Video.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0840191EB98D005BBB14 /* Video.m */; };
+		FC5D0844191EBD23005BBB14 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D0843191EBD23005BBB14 /* Parse.framework */; };
+		FC5D084E191EBD58005BBB14 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D0845191EBD58005BBB14 /* AudioToolbox.framework */; };
+		FC5D084F191EBD58005BBB14 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D0846191EBD58005BBB14 /* CFNetwork.framework */; };
+		FC5D0850191EBD58005BBB14 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D0847191EBD58005BBB14 /* CoreLocation.framework */; };
+		FC5D0851191EBD58005BBB14 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D0848191EBD58005BBB14 /* libz.dylib */; };
+		FC5D0852191EBD58005BBB14 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D0849191EBD58005BBB14 /* MobileCoreServices.framework */; };
+		FC5D0853191EBD58005BBB14 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D084A191EBD58005BBB14 /* QuartzCore.framework */; };
+		FC5D0854191EBD58005BBB14 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D084B191EBD58005BBB14 /* Security.framework */; };
+		FC5D0855191EBD58005BBB14 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D084C191EBD58005BBB14 /* StoreKit.framework */; };
+		FC5D0856191EBD58005BBB14 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC5D084D191EBD58005BBB14 /* SystemConfiguration.framework */; };
+		FC5D0859191EC450005BBB14 /* SendVideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0858191EC450005BBB14 /* SendVideoViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,6 +78,24 @@
 		FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
 		FC5D0831191E96E4005BBB14 /* MashActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MashActionViewController.h; sourceTree = "<group>"; };
 		FC5D0832191E96E4005BBB14 /* MashActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MashActionViewController.m; sourceTree = "<group>"; };
+		FC5D0836191EB3DA005BBB14 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
+		FC5D0837191EB3DA005BBB14 /* Group.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Group.m; sourceTree = "<group>"; };
+		FC5D083B191EB407005BBB14 /* Mash.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Mash.h; sourceTree = "<group>"; };
+		FC5D083C191EB407005BBB14 /* Mash.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Mash.m; sourceTree = "<group>"; };
+		FC5D083F191EB98D005BBB14 /* Video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Video.h; sourceTree = "<group>"; };
+		FC5D0840191EB98D005BBB14 /* Video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Video.m; sourceTree = "<group>"; };
+		FC5D0843191EBD23005BBB14 /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		FC5D0845191EBD58005BBB14 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		FC5D0846191EBD58005BBB14 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		FC5D0847191EBD58005BBB14 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		FC5D0848191EBD58005BBB14 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		FC5D0849191EBD58005BBB14 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		FC5D084A191EBD58005BBB14 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FC5D084B191EBD58005BBB14 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		FC5D084C191EBD58005BBB14 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		FC5D084D191EBD58005BBB14 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		FC5D0857191EC450005BBB14 /* SendVideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendVideoViewController.h; sourceTree = "<group>"; };
+		FC5D0858191EC450005BBB14 /* SendVideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendVideoViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,8 +103,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC5D084E191EBD58005BBB14 /* AudioToolbox.framework in Frameworks */,
+				FC5D084F191EBD58005BBB14 /* CFNetwork.framework in Frameworks */,
+				FC5D0850191EBD58005BBB14 /* CoreLocation.framework in Frameworks */,
+				FC5D0851191EBD58005BBB14 /* libz.dylib in Frameworks */,
+				FC5D0852191EBD58005BBB14 /* MobileCoreServices.framework in Frameworks */,
+				FC5D0853191EBD58005BBB14 /* QuartzCore.framework in Frameworks */,
+				FC5D0854191EBD58005BBB14 /* Security.framework in Frameworks */,
+				FC5D0855191EBD58005BBB14 /* StoreKit.framework in Frameworks */,
+				FC5D0856191EBD58005BBB14 /* SystemConfiguration.framework in Frameworks */,
 				FC5D07E8191E815A005BBB14 /* CoreGraphics.framework in Frameworks */,
 				FC5D07EA191E815A005BBB14 /* UIKit.framework in Frameworks */,
+				FC5D0844191EBD23005BBB14 /* Parse.framework in Frameworks */,
 				FC5D07E6191E815A005BBB14 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +154,16 @@
 		FC5D07E4191E815A005BBB14 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC5D0845191EBD58005BBB14 /* AudioToolbox.framework */,
+				FC5D0846191EBD58005BBB14 /* CFNetwork.framework */,
+				FC5D0847191EBD58005BBB14 /* CoreLocation.framework */,
+				FC5D0848191EBD58005BBB14 /* libz.dylib */,
+				FC5D0849191EBD58005BBB14 /* MobileCoreServices.framework */,
+				FC5D084A191EBD58005BBB14 /* QuartzCore.framework */,
+				FC5D084B191EBD58005BBB14 /* Security.framework */,
+				FC5D084C191EBD58005BBB14 /* StoreKit.framework */,
+				FC5D084D191EBD58005BBB14 /* SystemConfiguration.framework */,
+				FC5D0843191EBD23005BBB14 /* Parse.framework */,
 				FC5D07E5191E815A005BBB14 /* Foundation.framework */,
 				FC5D07E7191E815A005BBB14 /* CoreGraphics.framework */,
 				FC5D07E9191E815A005BBB14 /* UIKit.framework */,
@@ -124,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				FC5D0825191E8901005BBB14 /* Delegate */,
+				FC5D0839191EB3E0005BBB14 /* Model */,
 				FC5D07F7191E815A005BBB14 /* Main.storyboard */,
 				FC5D0826191E890D005BBB14 /* ViewControllers */,
 				FC5D07FD191E815A005BBB14 /* Images.xcassets */,
@@ -183,6 +236,7 @@
 		FC5D0826191E890D005BBB14 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				FC5D085A191EC455005BBB14 /* Send Video */,
 				FC5D082B191E8A46005BBB14 /* MashViewer */,
 				FC5D0827191E8917005BBB14 /* Home */,
 			);
@@ -224,6 +278,52 @@
 				FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */,
 			);
 			name = VideoPlayer;
+			sourceTree = "<group>";
+		};
+		FC5D0839191EB3E0005BBB14 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D0842191EB991005BBB14 /* Video */,
+				FC5D083A191EB3E8005BBB14 /* Group */,
+				FC5D083E191EB40B005BBB14 /* Mash */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FC5D083A191EB3E8005BBB14 /* Group */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D0836191EB3DA005BBB14 /* Group.h */,
+				FC5D0837191EB3DA005BBB14 /* Group.m */,
+			);
+			name = Group;
+			sourceTree = "<group>";
+		};
+		FC5D083E191EB40B005BBB14 /* Mash */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D083B191EB407005BBB14 /* Mash.h */,
+				FC5D083C191EB407005BBB14 /* Mash.m */,
+			);
+			name = Mash;
+			sourceTree = "<group>";
+		};
+		FC5D0842191EB991005BBB14 /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D083F191EB98D005BBB14 /* Video.h */,
+				FC5D0840191EB98D005BBB14 /* Video.m */,
+			);
+			name = Video;
+			sourceTree = "<group>";
+		};
+		FC5D085A191EC455005BBB14 /* Send Video */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D0857191EC450005BBB14 /* SendVideoViewController.h */,
+				FC5D0858191EC450005BBB14 /* SendVideoViewController.m */,
+			);
+			name = "Send Video";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -326,9 +426,13 @@
 			files = (
 				FC5D082A191E8A3B005BBB14 /* VideoPlayerViewController.m in Sources */,
 				FC5D07FC191E815A005BBB14 /* ViewController.m in Sources */,
+				FC5D083D191EB407005BBB14 /* Mash.m in Sources */,
+				FC5D0841191EB98D005BBB14 /* Video.m in Sources */,
+				FC5D0838191EB3DA005BBB14 /* Group.m in Sources */,
 				FC5D0820191E8333005BBB14 /* Cell.m in Sources */,
 				FC5D07F6191E815A005BBB14 /* AppDelegate.m in Sources */,
 				FC5D07F2191E815A005BBB14 /* main.m in Sources */,
+				FC5D0859191EC450005BBB14 /* SendVideoViewController.m in Sources */,
 				FC5D0833191E96E4005BBB14 /* MashActionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -454,6 +558,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mash/Mash-Prefix.pch";
 				INFOPLIST_FILE = "Mash/Mash-Info.plist";
@@ -467,6 +575,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Mash/Mash-Prefix.pch";
 				INFOPLIST_FILE = "Mash/Mash-Info.plist";

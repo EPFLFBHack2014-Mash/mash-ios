@@ -9,6 +9,8 @@
 #import "ViewController.h"
 #import "Cell.h"
 #import "VideoPlayerViewController.h"
+#import "Video.h"
+#import "SendVideoViewController.h"
 
 @interface ViewController ()
 
@@ -22,6 +24,15 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    
+    Group * testGroup = [[Group alloc] init];
+    testGroup.groupName = @"Madafukas";
+    
+    Group *testGroup2 =[[Group alloc] init];
+    testGroup2.groupName = @"Bambinos";
+    
+    self.groups = @[testGroup, testGroup2];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -39,7 +50,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 1;
+    return [self.groups count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -53,7 +64,7 @@
         cell = [nib objectAtIndex:0];
     }
     
-    cell.groupLabel.text = @"Hello";
+    cell.groupLabel.text = [[self.groups objectAtIndex:indexPath.row] groupName];
     
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 
@@ -67,6 +78,8 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    self.selectedGroup = [self.groups objectAtIndex:indexPath.row];
+
     [self performSegueWithIdentifier:@"watchMash" sender:self];
 }
 
@@ -75,7 +88,14 @@
     if ([segue.identifier isEqualToString:@"watchMash"])
     {
         VideoPlayerViewController* destvc = [segue destinationViewController];
-        destvc.videoURL= self.videoURL;
+//         destvc.videoURL = self.videoURL;
+        destvc.group = self.selectedGroup;
+    }
+    
+    else if ([segue.identifier isEqualToString:@"chooseGroups"])
+    {
+        SendVideoViewController *destvc = [segue destinationViewController];
+        destvc.groupNames = self.groups;
     }
 }
 
@@ -86,7 +106,7 @@
         picker.delegate = self;
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        picker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *) kUTTypeMovie, nil];
+        picker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *)kUTTypeMovie, nil];
         
         [self presentViewController:picker animated:YES completion:NULL];
     }
@@ -94,9 +114,22 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info {
     
+    // choose group to send to !
+    
+    Video*newVid = [[Video alloc] init];
+    newVid.path = info[UIImagePickerControllerMediaURL];
+    
+    //Send to parse backend
+    // [video uploadToParse];
+    
     self.videoURL = info[UIImagePickerControllerMediaURL];
-    NSLog(@"%@", self.videoURL);
-    [picker dismissViewControllerAnimated:YES completion:NULL];
+    
+    [picker dismissViewControllerAnimated:YES completion:^(){
+        [self performSegueWithIdentifier:@"chooseGroups" sender:self];
+    }];
+    
+    
+
 }
 
 
