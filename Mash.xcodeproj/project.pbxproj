@@ -24,6 +24,7 @@
 		FC5D081D191E82C4005BBB14 /* cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5D081C191E82C4005BBB14 /* cell.xib */; };
 		FC5D0820191E8333005BBB14 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D081F191E8333005BBB14 /* Cell.m */; };
 		FC5D082A191E8A3B005BBB14 /* VideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */; };
+		FC5D0833191E96E4005BBB14 /* MashActionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0832191E96E4005BBB14 /* MashActionViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,8 @@
 		FC5D081F191E8333005BBB14 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
 		FC5D0828191E8A3B005BBB14 /* VideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoPlayerViewController.h; sourceTree = "<group>"; };
 		FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoPlayerViewController.m; sourceTree = "<group>"; };
+		FC5D0831191E96E4005BBB14 /* MashActionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MashActionViewController.h; sourceTree = "<group>"; };
+		FC5D0832191E96E4005BBB14 /* MashActionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MashActionViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +204,8 @@
 			children = (
 				FC5D0828191E8A3B005BBB14 /* VideoPlayerViewController.h */,
 				FC5D0829191E8A3B005BBB14 /* VideoPlayerViewController.m */,
+				FC5D0831191E96E4005BBB14 /* MashActionViewController.h */,
+				FC5D0832191E96E4005BBB14 /* MashActionViewController.m */,
 			);
 			name = MashViewer;
 			sourceTree = "<group>";
@@ -308,6 +313,7 @@
 				FC5D0820191E8333005BBB14 /* Cell.m in Sources */,
 				FC5D07F6191E815A005BBB14 /* AppDelegate.m in Sources */,
 				FC5D07F2191E815A005BBB14 /* main.m in Sources */,
+				FC5D0833191E96E4005BBB14 /* MashActionViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

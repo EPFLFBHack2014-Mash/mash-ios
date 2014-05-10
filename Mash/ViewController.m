@@ -97,7 +97,6 @@
     self.videoURL = info[UIImagePickerControllerMediaURL];
     NSLog(@"%@", self.videoURL);
     [picker dismissViewControllerAnimated:YES completion:NULL];
-    
 }
 
 

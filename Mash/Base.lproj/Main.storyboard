@@ -70,10 +70,43 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="9a2-w8-9N5"/>
+                    <connections>
+                        <segue destination="qOK-cv-XGf" kind="modal" identifier="mashEnded" modalTransitionStyle="flipHorizontal" id="47J-No-RxF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ot9-fi-cs6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1212" y="6"/>
+        </scene>
+        <!--Mash Action View Controller-->
+        <scene sceneID="BSb-BB-wBn">
+            <objects>
+                <viewController id="qOK-cv-XGf" customClass="MashActionViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="cS9-vz-BQ2"/>
+                        <viewControllerLayoutGuide type="bottom" id="Dop-KW-Vgw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7Ne-Ux-Drf">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uPo-ff-P45">
+                                <rect key="frame" x="156" y="269" width="34" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveToCameraRoll:" destination="qOK-cv-XGf" eventType="touchUpInside" id="9cs-44-9WQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUO-Z0-Tiw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1714" y="6"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="nXR-Tr-Rwy">
