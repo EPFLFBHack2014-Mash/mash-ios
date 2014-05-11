@@ -10,6 +10,7 @@
 #import "Cell.h"
 #import "Group.h"
 #import <Parse/Parse.h>
+#import <CommonCrypto/CommonDigest.h>
 
 @interface SendVideoViewController ()
 {
@@ -128,8 +129,11 @@
 
 -(IBAction)sendVideo:(id)sender
 {
-    incrementName++;
-    PFFile* videoFile = [PFFile fileWithName:[NSString stringWithFormat:@"%ld", incrementName] contentsAtPath:self.videoURL];
+    NSDate *date = [NSDate date];
+    double timePassed_ms = [date timeIntervalSinceNow] * -1000.0;
+    NSString*dateString = [NSString stringWithFormat:@"%f", timePassed_ms];
+    
+    PFFile* videoFile = [PFFile fileWithName:[NSString stringWithFormat:@"%@", [self md5:dateString]] contentsAtPath:self.videoURL];
     [videoFile saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         
         PFQuery *query = [PFQuery queryWithClassName:@"Group"];
@@ -154,6 +158,21 @@
 -(IBAction)cancel:(id)sender
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (NSString *) md5:(NSString *) input
+{
+    const char *cStr = [input UTF8String];
+    unsigned char digest[16];
+    CC_MD5( cStr, strlen(cStr), digest );
+    
+    NSMutableString *output = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    
+    for(int i = 0; i < CC_MD5_DIGEST_LENGTH; i++)
+        [output appendFormat:@"%02x", digest[i]];
+    
+    return  output;
+    
 }
 
 @end

@@ -22,6 +22,7 @@
 
 @implementation ViewController
 
+#pragma mark - Init
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -56,7 +57,11 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    self.tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
 }
 
 #pragma mark - Table view data source
@@ -101,7 +106,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     self.selectedGroup = [self.groups objectAtIndex:indexPath.row];
-
+    
     [self performSegueWithIdentifier:@"watchMash" sender:self];
 }
 
@@ -128,6 +133,7 @@
     
 }
 
+#pragma mark - segue
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"watchMash"])
@@ -146,6 +152,7 @@
     }
 }
 
+#pragma mark - Video capture
 - (IBAction)captureVideo:(id)sender {
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         
