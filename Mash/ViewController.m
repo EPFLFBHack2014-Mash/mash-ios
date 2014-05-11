@@ -126,6 +126,7 @@
         picker.allowsEditing = YES;
         picker.sourceType = UIImagePickerControllerSourceTypeCamera;
         picker.mediaTypes = [[NSArray alloc] initWithObjects: (NSString *)kUTTypeMovie, nil];
+        [picker setVideoMaximumDuration:6.0f];
         
         [self presentViewController:picker animated:YES completion:NULL];
     }
