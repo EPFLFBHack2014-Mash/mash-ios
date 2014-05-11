@@ -13,4 +13,5 @@
 /* Req to server for a new mash which is returned */
 -(Mash*)mashItUp;
 
+@property(strong, nonatomic) NSURL*mashURL;
 @end

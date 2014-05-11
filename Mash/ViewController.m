@@ -81,13 +81,16 @@
     cell.groupLabel.text = [[self.groups objectAtIndex:indexPath.row] groupName];
     
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
+    backView.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = backView;
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 140;
+    return 60;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

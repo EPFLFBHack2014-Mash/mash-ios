@@ -8,6 +8,7 @@
 
 #import "VideoPlayerViewController.h"
 #import "MashActionViewController.h"
+#import <Parse/Parse.h>
 
 @interface VideoPlayerViewController ()
 
@@ -28,24 +29,46 @@
 {
     [super viewDidLoad];
     self.navigationController.navigationBar.hidden = YES;
+    
+    self.mash = [[Mash alloc]init];
+    
     // Do any additional setup after loading the view.
     self.videoController = [[MPMoviePlayerController alloc] init];
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(mashEnded)
                                                  name:MPMoviePlayerPlaybackDidFinishNotification object:nil];
     
-    if([[self.videoURL absoluteString] length]==0)
-        NSLog(@"Err");
-    else
-    {
-        [self.videoController setContentURL:self.videoURL];
-        [self.videoController.view setFrame:CGRectMake (0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-        [self.videoController setScalingMode:MPMovieScalingModeFill];
-        [self.videoController setShouldAutoplay:YES];
-        [self.view addSubview:self.videoController.view];
-    }
     
-    [self.videoController play];
+    
+    PFQuery* queryGroup = [PFQuery queryWithClassName:@"Group"];
+    [queryGroup whereKey:@"name" equalTo:self.group.groupName];
+    
+    [queryGroup getFirstObjectInBackgroundWithBlock:^(PFObject* object, NSError*error){
+        PFObject*group = object;
+        PFQuery* queryMashup = [PFQuery queryWithClassName:@"Mashup"];
+        [queryMashup whereKey:@"group" equalTo:group];
+        [queryMashup findObjectsInBackgroundWithBlock:^(NSArray* objects, NSError* error){
+            
+            PFFile*mashFile =[[objects objectAtIndex:1] objectForKey:@"file"];
+            
+            self.videoURL = [NSURL URLWithString:mashFile.url ];
+            
+            if([[self.videoURL absoluteString] length]==0)
+                NSLog(@"Err");
+            else
+            {
+                [self.videoController setContentURL:self.videoURL];
+                [self.videoController.view setFrame:CGRectMake (0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+                [self.videoController setScalingMode:MPMovieScalingModeFill];
+                [self.videoController setShouldAutoplay:YES];
+                [self.view addSubview:self.videoController.view];
+            }
+            
+            [self.videoController play];
+            
+         }];
+    }];
+    
 }
 
 - (void)didReceiveMemoryWarning

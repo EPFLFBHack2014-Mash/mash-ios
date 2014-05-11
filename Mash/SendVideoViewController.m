@@ -63,6 +63,11 @@
         cell = [nib objectAtIndex:0];
     }
     
+    UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];
+    backView.backgroundColor = [UIColor clearColor];
+    cell.backgroundView = backView;
+    cell.backgroundColor = [UIColor clearColor];
+    
     cell.groupLabel.text = [[self.groupNames objectAtIndex:indexPath.row] groupName];
     
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
@@ -79,7 +84,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Cell* cell = (Cell*)[tableView cellForRowAtIndexPath:indexPath];
-    cell.groupImage.image = [UIImage imageNamed:@"selected.png"];
+    cell.groupImage.image = [UIImage imageNamed:@"selected_full.png"];
     [self.recipients addObject:cell.groupLabel.text];
     
 }
@@ -87,7 +92,7 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Cell* cell = (Cell*)[tableView cellForRowAtIndexPath:indexPath];
-    cell.groupImage.image = [UIImage imageNamed:@"select.png"];
+    cell.groupImage.image = [UIImage imageNamed:@"select_thin.png"];
     [self.recipients removeObject:cell.groupLabel.text];
 
 }
