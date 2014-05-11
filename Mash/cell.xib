@@ -13,7 +13,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="69"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="select.png" translatesAutoresizingMaskIntoConstraints="NO" id="zYh-iA-UlK">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="select_thin.png" translatesAutoresizingMaskIntoConstraints="NO" id="zYh-iA-UlK">
                         <rect key="frame" x="19" y="14.5" width="40" height="40"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     </imageView>
@@ -33,6 +33,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="select.png" width="54" height="54"/>
+        <image name="select_thin.png" width="56" height="56"/>
     </resources>
 </document>

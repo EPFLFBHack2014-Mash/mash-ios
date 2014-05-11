@@ -34,6 +34,7 @@
     // Do any additional setup after loading the view.
     self.tableview.allowsMultipleSelection = YES;
     self.recipients = [[NSMutableArray alloc] init];
+    
 }
 
 - (void)didReceiveMemoryWarning
