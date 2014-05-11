@@ -61,6 +61,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="navigationBar" destination="zQC-59-qEQ" id="Zj5-cP-6RU"/>
                         <outlet property="tableview" destination="gHu-3I-YLg" id="wVC-Zl-m36"/>
                     </connections>
                 </viewController>

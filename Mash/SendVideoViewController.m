@@ -20,6 +20,7 @@
 
 @implementation SendVideoViewController
 
+#pragma mark - Init
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
@@ -35,6 +36,9 @@
     // Do any additional setup after loading the view.
     self.tableview.allowsMultipleSelection = YES;
     self.recipients = [[NSMutableArray alloc] init];
+    [self.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+    self.navigationBar.shadowImage = [UIImage new];
+    self.navigationBar.translucent = YES;
     
 }
 
@@ -44,6 +48,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+#pragma mark - table View Datasource & delegate
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -99,16 +105,13 @@
 
 }
 
+// Animate table view cells
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath{
     
-    
-    //1. Setup the CATransform3D structure
     CATransform3D rotation;
     rotation = CATransform3DMakeRotation( (90.0*M_PI)/180, 0.0, 0.7, 0.4);
     rotation.m34 = 1.0/ -600;
     
-    
-    //2. Define the initial state (Before the animation)
     cell.layer.shadowColor = [[UIColor blackColor]CGColor];
     cell.layer.shadowOffset = CGSizeMake(10, 10);
     cell.alpha = 0;
@@ -116,8 +119,6 @@
     cell.layer.transform = rotation;
     cell.layer.anchorPoint = CGPointMake(0, 0.5);
     
-    
-    //3. Define the final state (After the animation) and commit the animation
     [UIView beginAnimations:@"rotation" context:NULL];
     [UIView setAnimationDuration:0.8];
     cell.layer.transform = CATransform3DIdentity;
@@ -126,6 +127,9 @@
     [UIView commitAnimations];
     
 }
+
+
+#pragma mark - send video to Parse
 
 -(IBAction)sendVideo:(id)sender
 {
@@ -160,6 +164,9 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
+#pragma mark - utility
+
+//Hashing the date for video identifier for upload
 - (NSString *) md5:(NSString *) input
 {
     const char *cStr = [input UTF8String];

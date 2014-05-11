@@ -51,6 +51,9 @@
 		FC5D0888191F2FCA005BBB14 /* selected_full.png in Resources */ = {isa = PBXBuildFile; fileRef = FC5D0887191F2FCA005BBB14 /* selected_full.png */; };
 		FC5D088C191F3225005BBB14 /* bg3.png in Resources */ = {isa = PBXBuildFile; fileRef = FC5D088B191F3225005BBB14 /* bg3.png */; };
 		FC5D0890191F34F7005BBB14 /* icon-ios7-plus-outline1.png in Resources */ = {isa = PBXBuildFile; fileRef = FC5D088F191F34F7005BBB14 /* icon-ios7-plus-outline1.png */; };
+		FC5D0892191F62F9005BBB14 /* blec.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FC5D0891191F62F9005BBB14 /* blec.jpg */; };
+		FC5D0894191F6583005BBB14 /* actionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC5D0893191F6583005BBB14 /* actionView.xib */; };
+		FC5D0897191F67BC005BBB14 /* ActionView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC5D0896191F67BC005BBB14 /* ActionView.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -121,6 +124,10 @@
 		FC5D0887191F2FCA005BBB14 /* selected_full.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = selected_full.png; sourceTree = "<group>"; };
 		FC5D088B191F3225005BBB14 /* bg3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg3.png; sourceTree = "<group>"; };
 		FC5D088F191F34F7005BBB14 /* icon-ios7-plus-outline1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon-ios7-plus-outline1.png"; sourceTree = "<group>"; };
+		FC5D0891191F62F9005BBB14 /* blec.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blec.jpg; sourceTree = "<group>"; };
+		FC5D0893191F6583005BBB14 /* actionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = actionView.xib; sourceTree = "<group>"; };
+		FC5D0895191F67BC005BBB14 /* ActionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActionView.h; sourceTree = "<group>"; };
+		FC5D0896191F67BC005BBB14 /* ActionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActionView.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +221,7 @@
 		FC5D07EC191E815A005BBB14 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				FC5D0891191F62F9005BBB14 /* blec.jpg */,
 				FC5D088F191F34F7005BBB14 /* icon-ios7-plus-outline1.png */,
 				FC5D088B191F3225005BBB14 /* bg3.png */,
 				FC5D0887191F2FCA005BBB14 /* selected_full.png */,
@@ -285,6 +293,7 @@
 				FC5D0824191E88FB005BBB14 /* Cell */,
 				FC5D07FA191E815A005BBB14 /* ViewController.h */,
 				FC5D07FB191E815A005BBB14 /* ViewController.m */,
+				FC5D0898191F67C0005BBB14 /* ActionView */,
 			);
 			name = Home;
 			sourceTree = "<group>";
@@ -372,6 +381,16 @@
 			name = MashCell;
 			sourceTree = "<group>";
 		};
+		FC5D0898191F67C0005BBB14 /* ActionView */ = {
+			isa = PBXGroup;
+			children = (
+				FC5D0893191F6583005BBB14 /* actionView.xib */,
+				FC5D0895191F67BC005BBB14 /* ActionView.h */,
+				FC5D0896191F67BC005BBB14 /* ActionView.m */,
+			);
+			name = ActionView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -449,6 +468,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC5D0880191F2B53005BBB14 /* repeat-100.png in Resources */,
+				FC5D0894191F6583005BBB14 /* actionView.xib in Resources */,
 				FC5D0888191F2FCA005BBB14 /* selected_full.png in Resources */,
 				FC5D07FE191E815A005BBB14 /* Images.xcassets in Resources */,
 				FC5D081D191E82C4005BBB14 /* cell.xib in Resources */,
@@ -461,6 +481,7 @@
 				FC5D0886191F2F6D005BBB14 /* select_thin.png in Resources */,
 				FC5D087E191F2ADE005BBB14 /* download-100.png in Resources */,
 				FC5D087A191F2A37005BBB14 /* sent-32.png in Resources */,
+				FC5D0892191F62F9005BBB14 /* blec.jpg in Resources */,
 				FC5D087C191F2A87005BBB14 /* back-32.png in Resources */,
 				FC5D0884191F2C88005BBB14 /* icon-ios7-camera-outline1.png in Resources */,
 			);
@@ -485,6 +506,7 @@
 				FC5D07FC191E815A005BBB14 /* ViewController.m in Sources */,
 				FC5D083D191EB407005BBB14 /* Mash.m in Sources */,
 				FC5D0841191EB98D005BBB14 /* Video.m in Sources */,
+				FC5D0897191F67BC005BBB14 /* ActionView.m in Sources */,
 				FC5D0838191EB3DA005BBB14 /* Group.m in Sources */,
 				FC5D0820191E8333005BBB14 /* Cell.m in Sources */,
 				FC5D07F6191E815A005BBB14 /* AppDelegate.m in Sources */,

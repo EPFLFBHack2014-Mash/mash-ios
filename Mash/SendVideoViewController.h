@@ -20,4 +20,6 @@
 
 @property(nonatomic) int duration;
 
+@property(nonatomic, strong) IBOutlet UINavigationBar*navigationBar;
+
 @end
