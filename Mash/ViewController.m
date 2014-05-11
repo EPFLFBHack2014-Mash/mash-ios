@@ -42,6 +42,7 @@
             for (PFObject *object in objects) {
                 Group *testGroup = [[Group alloc] init];
                 testGroup.groupName = object[@"name"];
+                testGroup.numberOfPermutations = object[@"permutations"];
                 [self.groups addObject:testGroup];
             }
         } else {
@@ -82,6 +83,7 @@
     }
     
     cell.groupLabel.text = [[self.groups objectAtIndex:indexPath.row] groupName];
+    cell.numberOfPermutationsLabel.text = [NSString stringWithFormat:@"%@",[[self.groups objectAtIndex:indexPath.row] numberOfPermutations] ];
     
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
     UIView *backView = [[UIView alloc] initWithFrame:CGRectZero];

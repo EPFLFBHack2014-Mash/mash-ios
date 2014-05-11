@@ -16,7 +16,7 @@
                     <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Group name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ory-z3-0Ak">
                         <rect key="frame" x="20" y="12" width="227" height="34"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="23"/>
+                        <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="23"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -32,9 +32,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <color key="backgroundColor" red="1" green="0.59999999999999998" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
             </tableViewCellContentView>
             <connections>
                 <outlet property="groupLabel" destination="Ory-z3-0Ak" id="p1S-KH-C8B"/>
+                <outlet property="numberOfPermutationsLabel" destination="4Un-Cf-KTs" id="tQE-zb-eJk"/>
             </connections>
         </tableViewCell>
     </objects>

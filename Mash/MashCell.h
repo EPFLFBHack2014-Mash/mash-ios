@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface MashCell : UITableViewCell
-@property (nonatomic,weak) IBOutlet UIImageView* groupImage;
 @property (nonatomic, weak) IBOutlet UILabel* groupLabel;
+@property (nonatomic, weak) IBOutlet UILabel*numberOfPermutationsLabel;
 @end

@@ -13,4 +13,5 @@
 
 @property(nonatomic, strong) NSString *groupName;
 @property(nonatomic, strong) Mash *mash;
+@property(nonatomic, strong) NSString * numberOfPermutations;
 @end
