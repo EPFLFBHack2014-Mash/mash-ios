@@ -173,8 +173,45 @@
     
     self.videoURL = info[UIImagePickerControllerMediaURL];
     
+    NSString*videoPath = [self.videoURL absoluteString];
+    
     NSURL *videoURL=[info objectForKey:@"UIImagePickerControllerMediaURL"];
     AVURLAsset *asset = [[AVURLAsset alloc] initWithURL:videoURL options:nil];
+    
+    AVURLAsset *avAsset = [AVURLAsset URLAssetWithURL:videoURL options:nil];
+    NSArray *compatiblePresets = [AVAssetExportSession exportPresetsCompatibleWithAsset:avAsset];
+    
+    if ([compatiblePresets containsObject:AVAssetExportPresetLowQuality])
+    {
+        AVAssetExportSession *exportSession = [[AVAssetExportSession alloc]initWithAsset:avAsset presetName:AVAssetExportPresetPassthrough];
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+        videoPath = [NSString stringWithFormat:@"%@/%d.mp4", [paths objectAtIndex:0], rand()%60000];
+        exportSession.outputURL = [NSURL fileURLWithPath:videoPath];
+        NSLog(@"videopath of your mp4 file = %@",videoPath);  // PATH OF YOUR .mp4 FILE
+        exportSession.outputFileType = AVFileTypeMPEG4;
+        
+        [exportSession exportAsynchronouslyWithCompletionHandler:^{
+            
+            switch ([exportSession status]) {
+                    
+                case AVAssetExportSessionStatusFailed:
+                    NSLog(@"Export failed: %@", [[exportSession error] localizedDescription]);
+                    
+                    break;
+                    
+                case AVAssetExportSessionStatusCancelled:
+                    
+                    NSLog(@"Export canceled");
+                    
+                    break;
+                    
+                default:
+                    break;
+                    
+            }
+        }];
+        
+    }
     
     durationInSeconds = 0.0;
     if (asset) durationInSeconds = (int) CMTimeGetSeconds(asset.duration);

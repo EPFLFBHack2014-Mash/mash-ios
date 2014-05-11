@@ -12,8 +12,9 @@
 #import <Parse/Parse.h>
 #import "Group.h"
 #import "ActionView.h"
+#import "MashActionViewController.h"
 
-@interface VideoPlayerViewController : UIViewController <ActionViewDelegate>
+@interface VideoPlayerViewController : UIViewController <ActionViewDelegate, MashActionViewDelegate>
 
 @property (strong, nonatomic) Group * group;
 @property (strong, nonatomic) NSURL *videoURL;

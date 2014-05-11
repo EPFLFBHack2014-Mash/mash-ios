@@ -51,6 +51,7 @@
             
             PFFile*mashFile =[[objects objectAtIndex:rand()%objects.count] objectForKey:@"file"];
             
+            NSLog(@"%@", mashFile.url);
             self.videoURL = [NSURL URLWithString:mashFile.url];
             
             if([[self.videoURL absoluteString] length]==0)
@@ -61,7 +62,6 @@
                 author.layer.cornerRadius = 35;
                 author.clipsToBounds = YES;
                 author.image = [UIImage imageNamed:@"blec.jpg"];
-                
                 
                 [self.videoController setContentURL:self.videoURL];
                 [self.videoController.view setFrame:CGRectMake (0, 0, self.view.frame.size.width, self.view.frame.size.height)];
@@ -123,6 +123,7 @@
 
 -(void)childViewDidPressClose:(ActionView *)view
 {
+    [self dismissMoviePlayerViewControllerAnimated];
     [self performSegueWithIdentifier:@"dismissVideoController" sender:self];
 }
 
@@ -142,7 +143,69 @@
     {
         MashActionViewController *destvc = [segue destinationViewController];
         destvc.videoURL = self.videoURL;
+        destvc.delegate = self;
     }
+}
+
+-(void)didPressMash:(MashActionViewController *)view
+{
+    PFQuery* queryGroup = [PFQuery queryWithClassName:@"Group"];
+    [queryGroup whereKey:@"name" equalTo:self.group.groupName];
+    
+    [queryGroup getFirstObjectInBackgroundWithBlock:^(PFObject* object, NSError*error){
+        PFObject*group = object;
+        PFQuery* queryMashup = [PFQuery queryWithClassName:@"Mashup"];
+        [queryMashup whereKey:@"group" equalTo:group];
+        [queryMashup findObjectsInBackgroundWithBlock:^(NSArray* objects, NSError* error){
+            
+            PFFile*mashFile =[[objects objectAtIndex:rand()%objects.count] objectForKey:@"file"];
+            
+            self.videoURL = [NSURL URLWithString:mashFile.url];
+            
+            if([[self.videoURL absoluteString] length]==0)
+                NSLog(@"Err");
+            else
+            {
+                [self.videoController setContentURL:self.videoURL];
+                [self.videoController setCurrentPlaybackTime:0.0f];
+            }
+            
+            [self.videoController play];
+            
+        }];
+    }];
+
+}
+
+-(void)didPressSave:(MashActionViewController *)view
+{
+    if (UIVideoAtPathIsCompatibleWithSavedPhotosAlbum([[self.videoURL absoluteString] substringFromIndex:7]))
+    {
+        UISaveVideoAtPathToSavedPhotosAlbum([[self.videoURL absoluteString] substringFromIndex:7],
+                                            self,
+                                            @selector(video:finishedSavingWithError:contextInfo:),
+                                            nil);
+    }
+}
+
+-(void)video:(UIImage *)image finishedSavingWithError:(NSError *)error contextInfo:(void *)contextInfo
+{
+    if (error) {
+        UIAlertView *alert = [[UIAlertView alloc]
+                              initWithTitle: @"Save failed"
+                              message: @"Failed to save image/video"
+                              delegate: nil
+                              cancelButtonTitle:@"OK"
+                              otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
+-(void)didPressReplay:(MashActionViewController *)view
+{
+    [view dismissViewControllerAnimated:YES completion:nil];
+    [self.videoController setCurrentPlaybackTime:0.0f];
+    [self.videoController play];
 }
 
 

@@ -36,19 +36,35 @@
 }
 
 -(IBAction)saveToCameraRoll:(id)sender{
-    NSURL *mashUrl = self.videoURL;
-    UISaveVideoAtPathToSavedPhotosAlbum([mashUrl relativePath],self,nil, nil);
+    id<MashActionViewDelegate> strongDelegate = self.delegate;
+    
+    if ([strongDelegate respondsToSelector:@selector(didPressSave:)]) {
+        [strongDelegate didPressSave:self];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 -(IBAction)mashItUp:(id)sender
 {
+    id<MashActionViewDelegate> strongDelegate = self.delegate;
+    
+    if ([strongDelegate respondsToSelector:@selector(didPressMash:)]) {
+        [strongDelegate didPressMash:self];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(IBAction)replay:(id)sender
-{
+- (IBAction)replay:(id)sender {
+    
+    id<MashActionViewDelegate> strongDelegate = self.delegate;
+    
+    if ([strongDelegate respondsToSelector:@selector(didPressReplay:)]) {
+        [strongDelegate didPressReplay:self];
+    }
     [self dismissViewControllerAnimated:YES completion:nil];
+
 }
+
+
 
 @end
