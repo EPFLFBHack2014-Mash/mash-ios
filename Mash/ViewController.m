@@ -30,6 +30,8 @@
     [self.navigationController.navigationBar setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [UIImage new];
     self.navigationController.navigationBar.translucent = YES;
+    [self.navigationController.navigationBar setHidden:NO];
+
     // Do any additional setup after loading the view, typically from a nib.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;

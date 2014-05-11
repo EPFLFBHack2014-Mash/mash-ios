@@ -40,6 +40,16 @@
                         <action selector="mashItUp:" destination="iN0-l3-epB" eventType="touchUpInside" id="23a-kM-bJs"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RHB-II-zWa">
+                    <rect key="frame" x="27" y="32" width="20" height="20"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" image="icon-close1.png">
+                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                    <connections>
+                        <action selector="close:" destination="iN0-l3-epB" eventType="touchUpInside" id="1fu-hb-LdY"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.14999999999999999" colorSpace="calibratedRGB"/>
             <gestureRecognizers/>
@@ -49,6 +59,7 @@
     </objects>
     <resources>
         <image name="download-100.png" width="100" height="100"/>
+        <image name="icon-close1.png" width="30" height="30"/>
         <image name="repeat-100.png" width="100" height="100"/>
         <image name="shuffle-100.png" width="100" height="100"/>
     </resources>

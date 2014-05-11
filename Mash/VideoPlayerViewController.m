@@ -121,6 +121,11 @@
 
 }
 
+-(void)childViewDidPressClose:(ActionView *)view
+{
+    [self performSegueWithIdentifier:@"dismissVideoController" sender:self];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -128,7 +133,6 @@
 }
 
 - (void)mashEnded {
-    
     [self performSegueWithIdentifier:@"mashEnded" sender:self];
 }
 

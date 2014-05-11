@@ -146,6 +146,7 @@
                     <navigationItem key="navigationItem" id="9a2-w8-9N5"/>
                     <connections>
                         <segue destination="qOK-cv-XGf" kind="modal" identifier="mashEnded" modalTransitionStyle="flipHorizontal" id="47J-No-RxF"/>
+                        <segue destination="vXZ-lx-hvc" kind="push" identifier="dismissVideoController" id="imT-Hy-xey"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ot9-fi-cs6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -263,4 +264,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="imT-Hy-xey"/>
+    </inferredMetricsTieBreakers>
 </document>

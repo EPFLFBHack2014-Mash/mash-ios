@@ -46,6 +46,13 @@
     }
 }
 
-
+-(IBAction)close:(id)sender
+{
+    id<ActionViewDelegate> strongDelegate = self.delegate;
+    
+    if ([strongDelegate respondsToSelector:@selector(childViewDidPressClose:)]) {
+        [strongDelegate childViewDidPressClose:self];
+    }
+}
 
 @end

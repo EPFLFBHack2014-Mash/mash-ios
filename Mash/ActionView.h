@@ -15,6 +15,7 @@
 @property (nonatomic, weak) id<ActionViewDelegate> delegate;
 - (IBAction)replay:(id)sender;
 -(IBAction)mashItUp:(id)sender;
+-(IBAction)close:(id)sender;
 
 @property (nonatomic, strong) NSURL *videoURL;
 
@@ -24,5 +25,6 @@
 
 - (void)childViewDidPressReplay:(ActionView*)view;
 - (void)childViewDidPressMash:(ActionView*)view;
+- (void)childViewDidPressClose:(ActionView*)view;
 
 @end
