@@ -66,20 +66,20 @@
     cell.groupLabel.text = [[self.groupNames objectAtIndex:indexPath.row] groupName];
     
     tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectZero];
-    
+    cell.selectionStyle= UITableViewCellSelectionStyleNone;
     return cell;
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 66;
+    return 70;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Cell* cell = (Cell*)[tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    cell.groupImage.image = [UIImage imageNamed:@"selected.png"];
     [self.recipients addObject:cell.groupLabel.text];
     
 }
@@ -87,7 +87,7 @@
 - (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     Cell* cell = (Cell*)[tableView cellForRowAtIndexPath:indexPath];
-    cell.accessoryType = UITableViewCellAccessoryNone;
+    cell.groupImage.image = [UIImage imageNamed:@"select.png"];
     [self.recipients removeObject:cell.groupLabel.text];
 
 }

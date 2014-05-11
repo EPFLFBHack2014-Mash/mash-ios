@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "Cell.h"
+#import "MashCell.h"
 #import "VideoPlayerViewController.h"
 #import "Video.h"
 #import "SendVideoViewController.h"
@@ -25,7 +25,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    
+    // Do any additional setup after loading the view, typically from a nib.
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
 
@@ -35,13 +36,9 @@
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         if (!error) {
-            // The find succeeded.
-            NSLog(@"Successfully retrieved %d scores.", objects.count);
-            // Do something with the found objects
             for (PFObject *object in objects) {
                 Group *testGroup = [[Group alloc] init];
                 testGroup.groupName = object[@"name"];
-                
                 [self.groups addObject:testGroup];
             }
         } else {
@@ -72,12 +69,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *simpleTableIdentifier = @"Cell";
+    static NSString *simpleTableIdentifier = @"MashCell";
     
-    Cell *cell = (Cell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
+    MashCell *cell = (MashCell *)[tableView dequeueReusableCellWithIdentifier:simpleTableIdentifier];
     if (cell == nil)
     {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"cell" owner:self options:nil];
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"MashCell" owner:self options:nil];
         cell = [nib objectAtIndex:0];
     }
     
@@ -90,7 +87,7 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 66;
+    return 140;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -141,8 +138,6 @@
     
     durationInSeconds = 0.0;
     if (asset) durationInSeconds = (int) CMTimeGetSeconds(asset.duration);
-        
-    
     
     [picker dismissViewControllerAnimated:YES completion:^(){
         [self performSegueWithIdentifier:@"chooseGroups" sender:self];

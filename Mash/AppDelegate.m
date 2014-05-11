@@ -16,6 +16,7 @@
     [Parse setApplicationId:@"Cflndkv2V6uHwgdVQA5a8SpauDMvxoIk96aRgqKE"
                   clientKey:@"XczmrdmchPkbPO1GEc01wOPKD3uMoi67q2Zbfy0X"];
     // Override point for customization after application launch.
+    [[UINavigationBar appearance] setBarTintColor:[UIColor colorWithRed:1 green:159.f/255 blue:0 alpha:1.0]];
     return YES;
 }
 							
